@@ -39,11 +39,12 @@ function makeButtons() {
     const gridButton = document.createElement('button');
     gridButton.innerText = 'Change Size';
     gridButton.addEventListener('click', function() {
-        gridSize = parseInt(prompt('Enter a number 1 - 100'));
+        let newGridSize = parseInt(prompt('Enter a number 1 - 100'));
 
-        if (isNaN(gridSize) || gridSize < 1 || gridSize > 100) {
+        if (isNaN(newGridSize) || newGridSize < 1 || newGridSize > 100) {
             alert('Enter number 1 - 100 only.');
         } else {
+            gridSize = newGridSize;
             while (gridContainer.firstChild) {
                 gridContainer.removeChild(gridContainer.firstChild);
             }
@@ -52,7 +53,20 @@ function makeButtons() {
         }
         
     });
+
+    const resetButton  = document.createElement('button');
+    resetButton.innerText = 'Reset';
+    resetButton.addEventListener('click', function() {
+        
+            while (gridContainer.firstChild) {
+                gridContainer.removeChild(gridContainer.firstChild);
+            }
+
+            makeGrid();
+        }
+    );
     buttonContainer.appendChild(gridButton);
+    buttonContainer.appendChild(resetButton);
 }
 
 // Main Function

@@ -12,8 +12,9 @@ body {
 
 #button-container {
     align-items: center;
+    justify-content: space-around;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding-bottom: 24px;
 }
 
