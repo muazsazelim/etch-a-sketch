@@ -1,0 +1,36 @@
+body {
+    background-color: #222233;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#top-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#grid-container {
+    display: flex;
+}
+
+h1 {
+    color: #ddd;
+}
+
+footer h2 {
+    color: #ddd;
+    text-align: center;
+}
+
+.grid {
+    display: flex;
+}
+
+.square {
+    background-color: #ddd;
+    border: 1px solid #bbb;
+}
+
+
+
