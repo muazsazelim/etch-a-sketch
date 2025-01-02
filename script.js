@@ -10,10 +10,16 @@ gridContainer.classList.add('grid-container');
 topContainer.appendChild(gridContainer);
 
 let gridSize = 16;
+let randomiseColor = false;
 
 
 function changeColor(square) {
-    square.style.backgroundColor = '#535461';
+    if (randomiseColor == false) {
+        square.style.backgroundColor = '#535461';
+    } else {
+        const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+        square.style.backgroundColor = randomColor;
+    }
 }
 
 function makeGrid() {
@@ -54,10 +60,9 @@ function makeButtons() {
         
     });
 
-    const resetButton  = document.createElement('button');
+    const resetButton = document.createElement('button');
     resetButton.innerText = 'Reset';
     resetButton.addEventListener('click', function() {
-        
             while (gridContainer.firstChild) {
                 gridContainer.removeChild(gridContainer.firstChild);
             }
@@ -65,7 +70,23 @@ function makeButtons() {
             makeGrid();
         }
     );
+
+    const rgbButton = document.createElement('button');
+    rgbButton.innerText = 'Randomise Color';
+    rgbButton.addEventListener('click', function() {
+        if (randomiseColor == false) {
+            randomiseColor = true;
+            rgbButton.innerText = 'Black Color';
+        } else {
+            randomiseColor = false;
+            rgbButton.innerText = 'Randomise Color';
+        }
+    }
+);
+
+
     buttonContainer.appendChild(gridButton);
+    buttonContainer.appendChild(rgbButton);
     buttonContainer.appendChild(resetButton);
 }
 
